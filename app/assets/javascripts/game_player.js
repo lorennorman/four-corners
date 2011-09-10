@@ -6,16 +6,20 @@ var teams = {
 };
 var client = new Faye.Client("/faye");
 client.subscribe("/gamestart", function(message){
+  console.log('game started');
 	Game.StartCountdown();
 });
 $("#board").bind("touchesbegan click", function(){
 	if (Game.Started) {
-		client.publish("/tap", { teamId : teams[$(this).attr('id')] });
+		client.publish("/tap", { teamId : Game.teamId });
 	}
 });
 $("#team-chooser > div").bind("click", function(){
 	$("#team-chooser").hide();
-	client.publish("/jointeam", { teamId : teams[$(this).attr('id')] });
+	$("#waiting-div").show();
+  $("#team-color").text(teams[$(this).attr('id')]);
+  Game.teamId = teams[$(this).attr('id')];
+	client.publish("/jointeam", { teamId : Game.teamId });
 });
 
 function App() {
@@ -23,6 +27,7 @@ function App() {
 	this.Counter = 5;
 	this.CtrInterval;
 	this.Started = false;
+	this.teamId = null;
 	this.CountDown = function(){
 		if (_this.Counter < 0) {
 			clearInterval(_this.CtrInterval);

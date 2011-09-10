@@ -89,22 +89,32 @@ $(function() {
 
   var colors = ['red', 'blue', 'orange', 'yellow'];
   var joined = [0, 0, 0, 0];
+  var started = false;
   var client = new Faye.Client('/faye');
   client.subscribe('/jointeam', function(data) {
     joined[colors.indexOf(data.teamId)]++;
+    console.log('joined team ' + data.teamId);
 
-    var ready = true;
-    $.each(joined, function(i, count) {
-      if (count == 0) {
-        ready = false;
+    if (started) {
+      client.publish('/gamestart', {});
+
+    } else {
+      var ready = true;
+      // $.each(joined, function(i, count) {
+      //   if (count == 0) {
+      //     ready = false;
+      //   }
+      // });
+
+      if (ready) {
+        client.subscribe('/tap', function(data) {
+          console.log('tap: ' + data.teamId)
+          tally[colors.indexOf(data.teamId)]++;
+        });
+        client.publish('/gamestart', {});
+        console.log('starting game');
+        started = true;
       }
-    });
-
-    if (ready) {
-      client.subscribe('/tap', function(data) {
-        tally[colors.indexOf(data.teamId)]++;
-      });
-      client.publish('/gamestart');
     }
   });
 });
