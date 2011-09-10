@@ -7,6 +7,7 @@ var teams = {
 var client = new Faye.Client("/faye");
 client.subscribe("/gamestart", function(message){
   console.log('game started');
+  $('#waiting-div').hide();
 	Game.StartCountdown();
 });
 $("#board").bind("touchesbegan click", function(){
