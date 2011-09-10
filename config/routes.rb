@@ -1,4 +1,6 @@
 MobileJam::Application.routes.draw do
+  root :to => 'welcomes#index'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
