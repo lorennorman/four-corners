@@ -66,3 +66,121 @@ body {
   position: absolute;
   width: 200px; height: 200px;
 }
+
+* {
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-o-user-select: none;
+	user-select: none;
+}
+
+#board {
+	width: 100%;
+	height: 100%;
+	position: relative;
+}
+
+#counter {
+	display: none; text-shadow : gray -1px -1px, darkgray 1px 1px;
+	position: absolute;
+	text-align: center;
+	vertical-align: middle;
+	left: 50%;
+	bottom: 50%;
+	top: 50%;
+	right: 50%;
+	height: 0px;
+	line-height: 0px;
+	font-size: 80px;
+	text-shadow: gray -1px -1px, darkgray 1px 1px;
+}
+
+#team-chooser {
+	position: relative;
+	width: 300px;
+	height: 300px;
+	left: 40%;
+	top: 40%;
+}
+
+#team-chooser h2 {
+	font-size: 80px;
+	top: -200px;
+	left: -150px; position : absolute;
+	white-space: nowrap;
+	position: absolute;
+}
+
+#team-chooser div {
+	width: 0;
+	height: 0;
+	cursor: pointer; position : absolute;
+	font-size: 50px;
+	position: absolute;
+}
+
+#team-chooser span {
+	position: relative;
+	text-shadow: gray -1px -1px, darkgray 1px 1px;
+}
+
+#team-chooser div:hover {
+	opacity: 0.7;
+}
+
+#tl-corner {
+	border-radius: 150px 0 0;
+	border: 150px solid red;
+	border-right: 0;
+	border-bottom: 0;
+	left: 0;
+	top: 0;
+}
+
+#tl-corner span {
+	top: -70px;
+	left: -80px;
+}
+
+#tr-corner {
+	border-radius: 0 150px 0;
+	border: 150px solid orange;
+	border-left: 0;
+	border-bottom: 0;
+	right: 0;
+	top: 0;
+}
+
+#tr-corner span {
+	top: -70px;
+	right: -60px;
+}
+
+#bl-corner {
+	border-radius: 0 0 0 150px;
+	border: 150px solid blue;
+	border-right: 0;
+	border-top: 0;
+	left: 0;
+	bottom: 0;
+}
+
+#bl-corner span {
+	bottom: -40px;
+	left: -80px;
+}
+
+#br-corner {
+	border-radius: 0 0 150px 0;
+	border: 150px solid yellow;
+	border-left: 0;
+	border-top: 0;
+	right: 0;
+	bottom: 0;
+}
+
+#br-corner span {
+	bottom: -40px;
+	right: -60px;
+}
