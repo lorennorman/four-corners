@@ -25,7 +25,11 @@ $(function() {
   var lastTallyReset = new Date().getTime();
 
   function resetMatch() {
+    for (var i = 1; i <= 4; i++) {
+      $('#goal-'+i + ' .score').text(score[i-1]);
+    }
     tally = [0, 0, 0, 0];
+    lastTallyReset = new Date().getTime();
     currentHighScorer = -1;
     ball.stop();
     ball.css({left: (win.width() - ball.width())/2, top: (win.height() - ball.height())/2});
