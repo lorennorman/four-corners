@@ -19,10 +19,12 @@ $("body").bind("touchstart click", function(){
 $("#team-chooser > div").bind("click", function(){
 	$("#team-chooser, #team-chooser-header").hide();
 	$("#waiting-div").show();
-  $("#team-color").text(teams[$(this).attr('id')]);
   Game.teamId = teams[$(this).attr('id')];
+  $("#team-color").text(Game.teamId).closest('h5').css('color', Game.teamId);
 	client.publish("/jointeam", { teamId : Game.teamId });
 });
+
+$('body').height($(window).height());
 
 function App() {
 	var _this = this;
@@ -37,8 +39,10 @@ function App() {
 			$("#counter").text("GO! -- Tap to Move the Ball");
 			_this.Started = true;
 			var sendTaps = function() {
-			  client.publish("/tap", { teamId : Game.teamId, tapCount : tapCounter });
-			  tapCounter = 0;
+			  if (tapCounter > 0) {
+  			  client.publish("/tap", { teamId : Game.teamId, tapCount : tapCounter });
+  			  tapCounter = 0;
+			  }
 			  setTimeout(sendTaps, 100);
 			}
 			setTimeout(sendTaps, 100);

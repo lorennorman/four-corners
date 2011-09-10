@@ -21,6 +21,7 @@ $(function() {
     lastTallyReset = new Date().getTime();
     currentHighScorer = -1;
     ball.stop();
+    ball.removeClass('active');
     ball.css({left: (win.width() - ball.width())/2, top: (win.height() - ball.height())/2});
   }
 
@@ -59,6 +60,7 @@ $(function() {
     if (highScorer >= 0 && highScorer != currentHighScorer) {
       currentHighScorer = highScorer;
       ball.stop();
+      ball.addClass('active');
       switch (highScorer) {
         case 0:
           ball.animate({left: 0, top: 0}, 7000);

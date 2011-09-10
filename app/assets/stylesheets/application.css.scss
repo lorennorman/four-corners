@@ -61,10 +61,13 @@ body {
 }
 
 #ball {
-  background-color: purple;
+  background-image: -moz-radial-gradient(90px 90px, circle, #dbeaf5 0%, #a5cdea 10%, #6fb3e6 20%, #238fe2 30%, #2081cb 50%, #0e5d99 70%);
+  background-image: -webkit-radial-gradient(90px 90px, circle, #dbeaf5 0%, #a5cdea 10%, #6fb3e6 20%, #238fe2 30%, #2081cb 50%, #0e5d99 70%);
+  background-image: -o-radial-gradient(90px 90px, circle, #dbeaf5 0%, #a5cdea 10%, #6fb3e6 20%, #238fe2 30%, #2081cb 50%, #0e5d99 70%);
   border-radius: 200px;
   position: absolute;
   width: 200px; height: 200px;
+  box-shadow: 5px 5px 5px #000;
 }
 
 * {
@@ -97,7 +100,6 @@ h4 {
 	height:auto;
 }
 h5 {
-	color : blue;
 	font-size:50px;
 	height:auto;
 }
@@ -113,6 +115,7 @@ h5 {
 	display:block;
 	font-size: 80px;
 	height: auto;
+	margin-bottom: 10px;
 }
 
 #team-chooser div {
