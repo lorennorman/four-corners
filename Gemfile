@@ -4,7 +4,7 @@ gem 'rails', '3.1.0'
 
 gem 'foreman'
 # gem 'thin'
-# gem 'unicorn'
+gem 'unicorn'
 # gem 'eventmachine'
 # gem 'faye'
 
