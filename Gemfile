@@ -3,10 +3,10 @@ source 'http://rubygems.org'
 gem 'rails', '3.1.0'
 
 gem 'foreman'
-gem 'thin'
+# gem 'thin'
 # gem 'unicorn'
-gem 'eventmachine'
-gem 'faye'
+# gem 'eventmachine'
+# gem 'faye'
 
 group :assets do
   gem 'sass-rails', "  ~> 3.1.0"

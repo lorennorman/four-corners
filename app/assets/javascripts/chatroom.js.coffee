@@ -1,5 +1,5 @@
 $ ->
-  client = new Faye.Client '/faye'
+  client = new Faye.Client 'http://quiet-leaf-444.herokuapp.com/faye'
 
   client.subscribe '/chat', (message) ->
     console.log "received"
