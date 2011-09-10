@@ -2,8 +2,10 @@ $(function() {
   var hitWidth  = $('#goal-1').width() / 2;
   var win       = $(window);
   var ball      = $('#ball');
+  var qrcode    = $('#qrcode');
 
-  ball.css({left: (win.width() - ball.width())/2, top: (win.height() - ball.height())/2});
+  qrcode.css({left: (win.width() - qrcode.width())/2, top: (win.height() - qrcode.height())/2});
+  ball.css({left: (win.width() - ball.width())/2, top: (win.height() - ball.height())/2}).hide();
 
   var score = [0, 0, 0, 0];
   var tally = [0, 0, 0, 0];
@@ -79,7 +81,6 @@ $(function() {
 
     setTimeout(gameLoop, 100);
   }
-  setTimeout(gameLoop, 100);
 
   $.each([1,2,3,4], function(i) {
     $('#goal-'+(i+1)).click(function() {
@@ -111,6 +112,9 @@ $(function() {
           console.log('tap: ' + data.teamId)
           tally[colors.indexOf(data.teamId)]++;
         });
+        qrcode.hide();
+        ball.show();
+        setTimeout(gameLoop, 100);
         client.publish('/gamestart', {});
         console.log('starting game');
         started = true;
