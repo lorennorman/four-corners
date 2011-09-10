@@ -10,9 +10,10 @@ client.subscribe("/gamestart", function(message){
   $('#waiting-div').hide();
 	Game.StartCountdown();
 });
+var tapCounter = 0;
 $("#board").bind("touchesbegan click", function(){
 	if (Game.Started) {
-		client.publish("/tap", { teamId : Game.teamId });
+	  tapCounter++;
 	}
 });
 $("#team-chooser > div").bind("click", function(){
@@ -34,6 +35,13 @@ function App() {
 			clearInterval(_this.CtrInterval);
 		} else if (_this.Counter == 0) {
 			$("#counter").text("GO! -- Tap to Move the Ball");
+			_this.Started = true;
+			var sendTaps = function() {
+			  client.publish("/tap", { teamId : Game.teamId, tapCount : tapCounter });
+			  tapCounter = 0;
+			  setTimeout(sendTaps, 100);
+			}
+			setTimeout(sendTaps, 100);
 		} else {
 			$("#counter").text(_this.Counter--);
 		}
@@ -41,7 +49,6 @@ function App() {
 	this.StartCountdown = function(){
 		$("#counter").show().text("Get READY!");
 		_this.CtrInterval = setInterval(_this.CountDown, 1000);
-		_this.Started = true;
 	}; 
 };
 var Game = new App();

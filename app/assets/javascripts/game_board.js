@@ -113,7 +113,7 @@ $(function() {
       if (ready) {
         client.subscribe('/tap', function(data) {
           console.log('tap: ' + data.teamId)
-          tally[colors.indexOf(data.teamId)]++;
+          tally[colors.indexOf(data.teamId)] += data.tapCount;
         });
         qrcode.hide();
         ball.show();
