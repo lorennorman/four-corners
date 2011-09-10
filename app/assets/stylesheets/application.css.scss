@@ -1,0 +1,68 @@
+/*
+ * This is a manifest file that'll automatically include all the stylesheets available in this directory
+ * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
+ * the top of the compiled file, but it's generally better to create a new file per style scope.
+ *= require_self
+ *= require_tree . 
+*/
+
+body {
+  background: image-url('games/pool_table.png');
+  overflow: hidden;
+}
+
+.goal {
+  border-radius: 250px;
+  position: fixed;
+  width: 400px; height: 400px;
+
+  .score {
+    color: white;
+    float: left;
+    font-size: 96px;
+  }
+}
+
+#goal-1 {
+  background-color: red;
+  left: -200px; top: -200px;
+
+  .score {
+    margin: 225px 0 0 240px;
+  }
+}
+
+#goal-2 {
+  background-color: blue;
+  left: -200px; bottom: -200px;
+
+  .score {
+    margin: 72px 0 0 240px;
+  }
+}
+
+#goal-3 {
+  background-color: orange;
+  right: -200px; top: -200px;
+
+  .score {
+    margin: 225px 0 0 104px;
+  }
+}
+
+#goal-4 {
+  background-color: yellow;
+  right: -200px; bottom: -200px;
+
+  .score {
+    color: black;
+    margin: 72px 0 0 104px;
+  }
+}
+
+#ball {
+  background-color: purple;
+  border-radius: 200px;
+  position: absolute;
+  width: 200px; height: 200px;
+}
