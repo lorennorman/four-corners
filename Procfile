@@ -1,2 +1,2 @@
 web: bundle exec unicorn -p $PORT -c ./config/unicorn.rb
-faye: rackup faye.ru -s thin -E production -p 9292
+faye: rackup faye.ru -s thin -E production -p $PORT
