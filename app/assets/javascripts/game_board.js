@@ -4,6 +4,7 @@ $(function() {
   var ball      = $('#ball');
   var qrcode    = $('#qrcode');
 
+  $('.goal').hide();
   qrcode.css({left: (win.width() - qrcode.width())/2, top: (win.height() - qrcode.height())/2});
   ball.css({left: (win.width() - ball.width())/2, top: (win.height() - ball.height())/2}).hide();
 
@@ -93,7 +94,9 @@ $(function() {
   var started = false;
   var client = new Faye.Client('/faye');
   client.subscribe('/jointeam', function(data) {
-    joined[colors.indexOf(data.teamId)]++;
+    var teamIndex = colors.indexOf(data.teamId);
+    joined[teamIndex]++;
+    $('#goal-'+(teamIndex+1)).show();
     console.log('joined team ' + data.teamId);
 
     if (started) {
@@ -101,11 +104,11 @@ $(function() {
 
     } else {
       var ready = true;
-      // $.each(joined, function(i, count) {
-      //   if (count == 0) {
-      //     ready = false;
-      //   }
-      // });
+      $.each(joined, function(i, count) {
+        if (count == 0) {
+          ready = false;
+        }
+      });
 
       if (ready) {
         client.subscribe('/tap', function(data) {

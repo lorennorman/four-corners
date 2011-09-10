@@ -15,7 +15,7 @@ $("#board").bind("touchesbegan click", function(){
 	}
 });
 $("#team-chooser > div").bind("click", function(){
-	$("#team-chooser").hide();
+	$("#team-chooser, #team-chooser-header").hide();
 	$("#waiting-div").show();
   $("#team-color").text(teams[$(this).attr('id')]);
   Game.teamId = teams[$(this).attr('id')];
