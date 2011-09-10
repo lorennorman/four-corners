@@ -81,41 +81,45 @@ body {
 	position: relative;
 }
 
-#counter {
-	display: none; text-shadow : gray -1px -1px, darkgray 1px 1px;
-	position: absolute;
+#counter { display:none }
+h2, h5, h4 {
 	text-align: center;
 	vertical-align: middle;
-	left: 50%;
-	bottom: 50%;
-	top: 50%;
-	right: 50%;
-	height: 0px;
-	line-height: 0px;
+	width:100%;
+	height:100%;
+	line-height:70px;
 	font-size: 80px;
 	text-shadow: gray -1px -1px, darkgray 1px 1px;
+	margin:0;
+}
+h4 {
+	font-size:60px;
+	height:auto;
+}
+h5 {
+	color : blue;
+	font-size:50px;
+	height:auto;
 }
 
 #team-chooser {
 	position: relative;
 	width: 300px;
 	height: 300px;
-	left: 40%;
-	top: 40%;
+	margin:0 auto;
 }
 
-#team-chooser h2 {
+#team-chooser-header {
+	display:block;
 	font-size: 80px;
-	top: -200px;
-	left: -150px; position : absolute;
-	white-space: nowrap;
-	position: absolute;
+	height: auto;
 }
 
 #team-chooser div {
 	width: 0;
 	height: 0;
-	cursor: pointer; position : absolute;
+	cursor: pointer; 
+	position : absolute;
 	font-size: 50px;
 	position: absolute;
 }
@@ -144,7 +148,7 @@ body {
 }
 
 #tr-corner {
-	border-radius: 0 150px 0;
+	border-radius: 0 150px 0 0;
 	border: 150px solid orange;
 	border-left: 0;
 	border-bottom: 0;
