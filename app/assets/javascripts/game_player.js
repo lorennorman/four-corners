@@ -11,7 +11,7 @@ client.subscribe("/gamestart", function(message){
 	Game.StartCountdown();
 });
 var tapCounter = 0;
-$("#board").bind("touchesbegan click", function(){
+$("body").bind("touchstart click", function(){
 	if (Game.Started) {
 	  tapCounter++;
 	}
