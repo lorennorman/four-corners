@@ -1,1 +1,1 @@
-faye: rackup config.ru -s thin -E production -p $PORT
+faye: bundle exec rails server thin -p $PORT
