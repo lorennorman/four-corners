@@ -86,4 +86,25 @@ $(function() {
       tally[i]++;
     });
   });
+
+  var colors = ['red', 'blue', 'orange', 'yellow'];
+  var joined = [0, 0, 0, 0];
+  var client = new Faye.Client('/faye');
+  client.subscribe('/jointeam', function(data) {
+    joined[colors.indexOf(data.teamId)]++;
+
+    var ready = true;
+    $.each(joined, function(i, count) {
+      if (count == 0) {
+        ready = false;
+      }
+    });
+
+    if (ready) {
+      client.subscribe('/tap', function(data) {
+        tally[colors.indexOf(data.teamId)]++;
+      });
+      client.publish('/gamestart');
+    }
+  });
 });
