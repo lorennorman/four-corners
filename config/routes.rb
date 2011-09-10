@@ -33,7 +33,11 @@ MobileJam::Application.routes.draw do
   #     resource :seller
   #   end
 
-  resources :games
+  resources :games do
+    member do
+      get 'join'
+    end
+  end
 
   # Sample resource route with more complex sub-resources
   #   resources :products do
