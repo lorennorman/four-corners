@@ -1,1 +1,1 @@
-faye: bundle exec rails server thin -p $PORT
+faye: bundle exec rails server thin -p $PORT -e production
