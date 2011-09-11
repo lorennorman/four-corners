@@ -1,6 +1,15 @@
 # Four Corners
 A (silly) project created in about 8 hours at the [AT&T Mobile Hackathon](http://www.mobileapphackathon.com) in Atlanta, GA on September 10th, 2011.
 
+## Example Live at...
+[Four Corners](http://four-corners.herokuapp.com/)
+
+Visit that link on your "game board" (ie a shared space that players will be looking at, like a computer screen, projector, or centrally located tablet) and follow the "new game" link. The screen will prominently display a QR-Code to simplify mobile clients joining.
+
+Now, with at least 4 mobile devices, pull out your QR-Code reader apps, follow the link, and you'll get to the game. Once 4 players have joined the game and chosen teams, the game will start!
+
+Now: tap like mad to get the ball into your goal!
+
 ## Technologies Used
 * [Rails 3.1](http://guides.rubyonrails.org) with [Asset Pipeline](http://guides.rubyonrails.org/asset_pipeline.html)
 * [Heroku](http://heroku.com) on the [Celdon Cedar stack](http://devcenter.heroku.com/articles/cedar)
