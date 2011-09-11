@@ -8,8 +8,9 @@ A (silly) project created in about 8 hours at the [AT&T Mobile Hackathon](http:/
 * [Bit.ly API](http://code.google.com/p/bitly-api/wiki/ApiDocumentation) for automatic [QRCode](http://code.google.com/p/bitly-api/wiki/ApiDocumentation#QR_Codes)-to-URL generation
 * [iPhone/JS touch events](http://www.sitepen.com/blog/2008/07/10/touching-and-gesturing-on-the-iphone/)
 
-## Collaborators
-* [Blake Byrnes](https://github.com/blakebyrnes)
-* [Calvin Yu](https://github.com/cyu)
-* [Daniel Sims](https://github.com/dsims)
-* [Loren Norman](https://github.com/lorennorman)
+## Team
+* [Blake Byrnes](https://github.com/blakebyrnes) idea, player-client
+* [Calvin Yu](https://github.com/cyu) idea, server-client
+* [Daniel Sims](https://github.com/dsims) idea, scope management, windows and android testing
+* [Loren Norman](https://github.com/lorennorman) faye, deployment, bitly/qrcode integration
+* [Stafford Brooke](https://github.com/srbiv) deployment, faye and asset pipeline troubleshooting
